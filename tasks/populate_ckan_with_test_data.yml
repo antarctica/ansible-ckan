@@ -1,0 +1,9 @@
+---
+
+- name: populate ckan with government test data
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan create-test-data gov -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  when: ckan_setup_test_data == true
+
+- name: populate ckan with hierarchical test data
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan create-test-data hierarchy -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  when: ckan_setup_test_data == true

@@ -1,0 +1,4 @@
+---
+
+- name: create required database tables
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin=ckan db init -c {{ ckan_config_directory }}/{{ ckan_config_file }}"

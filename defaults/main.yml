@@ -1,0 +1,53 @@
+---
+# Default variables - inventory or playbook overrides will be respected
+
+ckan_ckan_version: 2.2.1
+
+ckan_installation_directory: /usr/lib/ckan/default
+ckan_config_directory: /etc/ckan/default
+ckan_storage_directory: /var/lib/ckan
+ckan_config_file: production.ini
+
+ckan_app_user_username: app
+
+ckan_setup_superuser_enable: true
+ckan_setup_test_data: false
+
+ckan_default_config_database_scheme: postgresql
+ckan_default_config_database_username: ckan_default
+ckan_default_config_database_password: password
+ckan_default_config_database_host: localhost
+ckan_default_config_database_database: ckan_default
+
+ckan_default_config_search_scheme: http
+ckan_default_config_search_host: "{{ solr_jetty_host }}"
+ckan_default_config_search_port: 8983
+ckan_default_config_search_container: solr
+
+ckan_default_config_default_options:
+  - section: DEFAULT
+    options:
+      - option: debug
+        value: false
+  - section: server:main
+    options:
+      - option: host
+        value: "{{ ansible_default_ipv4.address }}"
+  - section: app:main
+    options:
+      - option: sqlalchemy.url
+        value: "{{ ckan_default_config_database_scheme }}://{{ ckan_default_config_database_username }}:{{ ckan_default_config_database_password }}@{{ ckan_default_config_database_host }}/{{ ckan_default_config_database_database }}"
+      - option: ckan.site_url
+        value: "http://{{ ansible_hostname }}"
+      - option: solr_url
+        value: "{{ ckan_default_config_search_scheme }}://{{ ckan_default_config_search_host }}:{{ ckan_default_config_search_port }}/{{ ckan_default_config_search_container }}"
+      - option: licenses_group_url
+        value: https://s3-eu-west-1.amazonaws.com/packages.calcifer.co/scratch/ckan_licenses.json
+      - option: ckan.storage_path
+        value: "{{ ckan_storage_directory }}"
+
+ckan_default_config_user_options: []
+
+ckan_super_user_username: controller
+ckan_super_user_password: password
+ckan_super_user_email: user@example.com

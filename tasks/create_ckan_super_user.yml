@@ -1,0 +1,21 @@
+---
+
+- name: check if ckan user account for super user exists
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan user search {{ ckan_super_user_username }} -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  register: ckan_fact_ckan_super_user_account
+  changed_when: False
+  when: ckan_setup_superuser_enable == true
+
+- name: create ckan user account for super user
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan user add {{ ckan_super_user_username }} email={{ ckan_super_user_email }} password={{ ckan_super_user_password }} -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  when: ckan_setup_superuser_enable == true and "1 users matching" not in ckan_fact_ckan_super_user_account.stdout
+
+- name: check if ckan user account for super user has system administrator privileges
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan sysadmin list -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  register: ckan_fact_ckan_super_user_privilages
+  changed_when: False
+  when: ckan_setup_superuser_enable == true
+
+- name: grant ckan user account for super user system administrator privileges
+  command: "{{ ckan_installation_directory }}/bin/paster --plugin ckan sysadmin add {{ ckan_super_user_username }} -c {{ ckan_config_directory }}/{{ ckan_config_file }}"
+  when: ckan_setup_superuser_enable == true and "name={{ ckan_super_user_username }}" not in ckan_fact_ckan_super_user_privilages.stdout

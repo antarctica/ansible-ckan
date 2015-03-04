@@ -1,0 +1,3 @@
+---
+
+- include: ../../solr-jetty/handlers/main.yml

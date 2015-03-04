@@ -1,0 +1,21 @@
+---
+
+- name: get details about solr schema
+  file: path=/etc/solr/conf/schema.xml follow=yes
+  register: solr_schema
+
+- name: remove default solr schema
+  file: path=/etc/solr/conf/schema.xml state=absent
+  when: solr_schema.state == 'file'
+
+- name: configure solr to use ckan schema
+  file: path=/etc/solr/conf/schema.xml src="{{ ckan_installation_directory }}/src/ckan/ckan/config/solr/schema.xml" state=link
+  register: ckan_fact_solr_schema_changed
+
+- name: restart solr via jetty to load new schema - not a real task
+  stat: path=/dev/null
+  notify:
+    - Restart Jetty
+  when: ckan_fact_solr_schema_changed.changed
+
+- meta: flush_handlers

@@ -1,0 +1,10 @@
+---
+
+- name: install ckan from python egg using pip
+  pip: name="git+https://github.com/ckan/ckan.git@ckan-{{ ckan_ckan_version }}#egg=ckan" virtualenv="{{ ckan_installation_directory }}" state=present
+
+- name: install python dependencies
+  pip: requirements="{{ ckan_installation_directory }}/src/ckan/requirements.txt" virtualenv="{{ ckan_installation_directory }}" state=present
+
+- name: set permissions on installation directory
+  file: path="{{ ckan_installation_directory }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 recurse=yes

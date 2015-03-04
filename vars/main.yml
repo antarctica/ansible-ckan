@@ -1,0 +1,4 @@
+---
+# These variables override role defaults but can be overriden by playbooks
+
+solr_jetty_port: "{{ ckan_default_config_search_port }}"

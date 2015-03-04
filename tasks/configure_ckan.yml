@@ -1,0 +1,19 @@
+---
+
+- name: generate configuration file
+  command: "{{ ckan_installation_directory }}/bin/paster make-config ckan {{ ckan_config_directory }}/{{ ckan_config_file }} creates={{ ckan_config_directory }}/{{ ckan_config_file }}"
+
+- name: configure configuration file - default options
+  ini_file: dest="{{ ckan_config_directory }}/{{ ckan_config_file }}" section="{{ item.0.section }}" option="{{ item.1.option }}" value="{{ item.1.value }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 backup=yes
+  with_subelements:
+    - ckan_default_config_default_options
+    - options
+
+- name: configure configuration file - user options
+  ini_file: dest="{{ ckan_config_directory }}/{{ ckan_config_file }}" section="{{ item.0.section }}" option="{{ item.1.option }}" value="{{ item.1.value }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 backup=yes
+  with_subelements:
+    - ckan_default_config_user_options
+    - options
+
+- name: symlink who.ini file into configuration directory
+  file: path="{{ ckan_config_directory }}/who.ini" src="{{ ckan_installation_directory }}/src/ckan/who.ini" state=link
