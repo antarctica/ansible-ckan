@@ -1,3 +1,5 @@
 ---
 
 - include: ../../solr-jetty/handlers/main.yml
+- include: ../../apache/handlers/main.yml
+- include: ../../nginx/handlers/main.yml
