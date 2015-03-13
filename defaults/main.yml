@@ -1,7 +1,7 @@
 ---
 # Default variables - inventory or playbook overrides will be respected
 
-ckan_ckan_version: 2.2.1
+ckan_ckan_version: 2.3
 
 ckan_installation_directory: /usr/lib/ckan/default
 ckan_config_directory: /etc/ckan/default
