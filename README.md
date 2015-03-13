@@ -30,7 +30,7 @@ This role is designed for internal use but if useful can be shared publicly.
 * `ckan_ckan_version`
     * The version of CKAN that will be installed expressed as reference within the [CKAN Git repository](https://github.com/ckan/ckan)
     * This variable **MUST** be a valid branch, tag or other reference and **SHOULD** be a tag to ensure repeatability.
-    * Default: "2.2.1"
+    * Default: "2.3"
 * `ckan_installation_directory`
     * The directory into which CKAN will be installed and a Virtual Environment created
     * By default this variable uses the CKAN default installation directory, you **SHOULD NOT** change this.

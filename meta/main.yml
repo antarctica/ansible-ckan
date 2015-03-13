@@ -13,7 +13,7 @@ galaxy_info:
 
 armadillo_info:
   name: CKAN
-  version: 0.1.0
+  version: 0.1.1
   source: git@stash.ceh.ac.uk:7999/barc/ckan.git
   dependencies:
     - git@stash.ceh.ac.uk:7999/barc/postgresql-server.git#v0.1.12
