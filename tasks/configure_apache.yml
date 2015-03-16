@@ -1,8 +1,5 @@
 ---
 
-- name: add app user to www-data group
-  user: name=app groups=www-data
-
 - name: create WSGI script file
   template: src=etc/ckan/default/apache.wsgi.j2 dest="{{ ckan_config_directory }}/apache.wsgi"
 
