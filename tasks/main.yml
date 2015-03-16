@@ -10,7 +10,7 @@
 
 - include: configure_solr.yml
 
-- include: configure_apache.yml
+- include: configure_apache_wsgi.yml
 
 - include: configure_nginx.yml
 
