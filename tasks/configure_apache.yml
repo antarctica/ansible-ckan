@@ -17,7 +17,3 @@
   notify:
     - Restart Apache
   when: ansible_distribution_version == "14.04"
-
-- name: configure apache ports.conf
-  template: src=etc/apache2/ports.conf.j2 dest=/etc/apache2/ports.conf # no validation currently
-  when: ansible_distribution_version == "14.04"
