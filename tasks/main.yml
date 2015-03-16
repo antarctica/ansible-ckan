@@ -10,10 +10,13 @@
 
 - include: configure_solr.yml
 
+- include: configure_apache_wsgi.yml
+
+- include: configure_nginx.yml
+
 - include: configure_ckan.yml
 
 - include: setup_ckan_db.yml
-
 
 # These tasks are optional depending on the features selected (i.e. optional)
 

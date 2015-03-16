@@ -1,3 +1,8 @@
 ---
 
 - include: ../../solr-jetty/handlers/main.yml
+
+# TODO: Replace with reference to apache-wsgi when BASWEB-294 is resolved
+- include: ../../apache/handlers/main.yml
+
+- include: ../../nginx/handlers/main.yml

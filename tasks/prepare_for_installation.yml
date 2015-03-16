@@ -6,5 +6,5 @@
 - name: create configuration directory
   file: path="{{ ckan_config_directory }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 state=directory
 
-- name: create storage directory
-  file: path="{{ ckan_storage_directory }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 state=directory
+- name: create storage directory with app user ownership and web-server permissions
+  file: path="{{ ckan_storage_directory }}" owner="{{ ckan_app_user_username }}" group="www-data" mode=775 state=directory

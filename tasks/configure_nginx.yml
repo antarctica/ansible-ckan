@@ -1,0 +1,6 @@
+---
+
+- name: configure default nginx server
+  template: src=etc/nginx/sites-available/default.j2 dest=/etc/nginx/sites-available/default # no validation currently
+  notify:
+    - Restart Nginx

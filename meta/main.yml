@@ -13,16 +13,22 @@ galaxy_info:
 
 armadillo_info:
   name: CKAN
-  version: 0.1.1
+  version: 0.2.0
   source: git@stash.ceh.ac.uk:7999/barc/ckan.git
   dependencies:
     - git@stash.ceh.ac.uk:7999/barc/postgresql-server.git#v0.1.12
     - git@stash.ceh.ac.uk:7999/barc/solr-jetty.git#v0.1.0
     - git@stash.ceh.ac.uk:7999/barc/python-2-virtualenv.git#v0.1.0
     - git@stash.ceh.ac.uk:7999/barc/git.git#v0.1.3
+    - git@stash.ceh.ac.uk:7999/barc/apache-wsgi.git#v0.2.0
+    - git@stash.ceh.ac.uk:7999/barc/apache-rpaf.git#v0.2.0
+    - git@stash.ceh.ac.uk:7999/barc/nginx.git#v0.2.3
 
 dependencies:
   - postgresql-server
   - solr-jetty
   - python-2-virtualenv
   - git
+  - apache-wsgi
+  - apache-rpaf
+  - nginx
