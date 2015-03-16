@@ -7,4 +7,4 @@
   file: path="{{ ckan_config_directory }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 state=directory
 
 - name: create storage directory
-  file: path="{{ ckan_storage_directory }}" owner="{{ ckan_app_user_username }}" group="{{ ckan_app_user_username }}" mode=775 state=directory
+  file: path="{{ ckan_storage_directory }}" owner="{{ ckan_app_user_username }}" group="www-data" mode=775 state=directory

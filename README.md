@@ -7,6 +7,7 @@ Installs the CKAN open data portal
 ## Overview
 
 * Installs a development instance of CKAN, including database and schema setup
+* Configures CKAN to run as a WSGI application under Apache, using Nginx as a reverse proxy for static caching
 * Optionally configures a CKAN user with system administrator privileges
 * Optionally populates CKAN with test data
 
@@ -24,6 +25,8 @@ This role is designed for internal use but if useful can be shared publicly.
 * `solr-jetty`
 * `python-2-virtualenv`
 * `git`
+* `apache`
+* `nginx`
 
 ## Variables
 
