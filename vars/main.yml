@@ -7,3 +7,7 @@ solr_jetty_port: "{{ ckan_default_config_search_port }}"
 # Apache
 apache_default_var_www_server_binding: "{{ ansible_lo.ipv4.address }}"
 apache_default_var_www_server_http_port: 8080
+
+# Apache WSGI
+apache_wsgi_option_script_alias_directory: "{{ ckan_config_directory }}"
+apache_wsgi_option_script_alias: "/ {{ ckan_config_directory }}/apache.wsgi"

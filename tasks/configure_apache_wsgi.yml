@@ -1,0 +1,11 @@
+---
+
+- name: create WSGI script file
+  template: src=etc/ckan/default/apache.wsgi.j2 dest="{{ ckan_config_directory }}/apache.wsgi"
+
+- name: add WSGI settings to module include file
+  lineinfile: dest="{{ apache_wsgi_config_file_path }}" line="{{ item }}" insertafter=EOF state=present
+  with_items:
+    - # Deploy as a daemon (avoids conflicts between CKAN instances).
+    - WSGIDaemonProcess ckan_default display-name=ckan_default processes=2 threads=15
+    - WSGIProcessGroup ckan_default
