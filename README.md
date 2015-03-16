@@ -25,7 +25,8 @@ This role is designed for internal use but if useful can be shared publicly.
 * `solr-jetty`
 * `python-2-virtualenv`
 * `git`
-* `apache`
+* `apache-wsgi`
+* `apache-rpaf`
 * `nginx`
 
 ## Variables
