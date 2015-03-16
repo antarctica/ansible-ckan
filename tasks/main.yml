@@ -18,7 +18,6 @@
 
 - include: setup_ckan_db.yml
 
-
 # These tasks are optional depending on the features selected (i.e. optional)
 
 - include: create_ckan_super_user.yml
