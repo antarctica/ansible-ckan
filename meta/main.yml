@@ -20,9 +20,13 @@ armadillo_info:
     - git@stash.ceh.ac.uk:7999/barc/solr-jetty.git#v0.1.0
     - git@stash.ceh.ac.uk:7999/barc/python-2-virtualenv.git#v0.1.0
     - git@stash.ceh.ac.uk:7999/barc/git.git#v0.1.3
+    - git@stash.ceh.ac.uk:7999/barc/apache.git#v0.4.1
+    - git@stash.ceh.ac.uk:7999/barc/nginx.git#v0.2.3
 
 dependencies:
   - postgresql-server
   - solr-jetty
   - python-2-virtualenv
   - git
+  - apache
+  - nginx
