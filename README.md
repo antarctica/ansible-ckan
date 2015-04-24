@@ -7,7 +7,8 @@ Installs the CKAN open data portal
 ## Overview
 
 * Installs a development instance of CKAN, including database and schema setup
-* Configures CKAN to run as a WSGI application under Apache, using Nginx as a reverse proxy for static caching
+* Configures CKAN to run as a WSGI application under Apache
+* Configures Nginx as a reverse proxy for static caching and SSL termination
 * Optionally configures a CKAN user with system administrator privileges
 * Optionally populates CKAN with test data
 
