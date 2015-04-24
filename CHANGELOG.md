@@ -1,5 +1,10 @@
 # CKAN (`ckan`) - Changelog
 
+## 0.3.0 - April 2015
+
+* Updating role dependencies
+* Adding SSL support
+
 ## 0.2.1 - March 2015
 
 * Updating role dependencies
